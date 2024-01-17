@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Generate a Random Number to the min length of 5 and max length of 5  </title>
+
+</head>
+<body>
+    
+
+    <div class="main"> 
+        <input type="text" id="number_value" placeholder="Please Enter the number"> 
+        <button type="button" id="btn" onclick="validateResponse()"> Convert </button> 
+        <h1 id="response_text"> 
+        </h1>
+    </div>
+       
+
+    <script>
+       
+        function validateResponse(){
+                    let number = document.getElementById("number_value").value;
+                    let res = document.getElementById("response_text");
+                //     if (isNaN(number)) {
+                //          console.log(`not a valid number`);
+                //      }
+                //    else if (number % 2 !== 0) {
+                //         console.log(`${number} is a odd Number`);
+                //         } 
+                //     else{
+                //         console.log(`${number} is a even Number`);
+                //     }
+                // using ternary operators
+                 const result = isNaN(number) ? console.log(`not a valid number`) : (number % 2 == 0) ? console.log(`an even number`) : console.log("an odd number")
+                 }
+    </script>
+
+
+</body>
+</html>
+
+

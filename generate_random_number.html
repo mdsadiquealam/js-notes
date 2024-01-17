@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Generate a Random Number to the min length of 5 and max length of 5  </title>
+
+</head>
+<body>
+    
+
+    <div class="main"> 
+        <input type="text" id="number_value" placeholder="Please Enter the number"> 
+        <button type="button" id="btn" onclick="validateResponse()"> Convert </button> 
+        <h1 id="response_text"> 
+        </h1>
+    </div>
+       
+
+    <script>
+          let maxNumber = 99999;
+          let minNumber = 10000;
+          let randomNumber = (Math.random() * (maxNumber - minNumber + 1)+ minNumber);
+          let nearestNumbers = Math.floor(randomNumber);
+          console.log(nearestNumbers)
+    </script>
+
+
+</body>
+</html>
+

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Convert celsius to farenhit  </title>
+
+    
+</head>
+<body>
+    
+
+    <div class="main"> 
+        <input type="number" id="number_value"> Celsius
+        <button type="button" id="convert">  Convert </button> farenhit
+        <h1 id="response_text"> 
+
+        </h1>
+    </div>
+       
+
+    <script>
+            // FARENHIT = CELSIUS * 18 + 32;
+            let btn = document.getElementById("convert");
+            btn.addEventListener("click", function convertcelsiusFarenhit() {
+                 let response_text = document.getElementById("response_text");
+                 let inputText = document.getElementById("number_value").value;
+                 let farenhit = inputText * 1.8 + 32;
+                 response_text.textContent = farenhit + " Farenhit";                
+                
+            });
+
+    </script>
+
+
+</body>
+</html>
+

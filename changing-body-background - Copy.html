@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> swapping two variable using third variables / swapping two variable without using third variables  </title>
+    <style>
+        *{
+            box-sizing: border-box;
+        }
+        body{
+            background: red;
+        }
+
+        h2{
+
+        }
+        .container{
+            width: 400px;
+            padding:40px 20px;
+            background: #fff;
+            border-radius: 10px;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+        }
+        button{
+            background: #000;
+            color: #fff;
+            padding: 10px 20px;
+            cursor: pointer;
+            text-transform: uppercase;
+            font-weight: 600;
+        }
+        input{
+            display: block;
+            width: 100%;
+            padding: 10px 20px;
+            margin-bottom: 20px;
+        }
+    </style>
+    
+</head>
+<body>
+    
+
+    <div class="container">
+        <div class="inner_parent"> 
+                <h2> 
+                    Generate a Rnadom Password
+                </h2>
+                <input type="text" id="input_box" placeholder="Generate a random password ">
+                <button id="btn" onclick="generateRandomPassword()"> Generate password</button>
+        </div>
+    </div>
+       
+
+    <script>
+        let inputBox = document.getElementById("input_box");
+        let upperCase = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+        let lowerCase = "abcdefhijklmnopqrstuvwxyz";
+        let numbers = "0123456789";
+        let symbols = "{}-!@#$%^&*()_)";
+        let length= 12;
+        let allChars = upperCase + numbers + symbols + lowerCase;
+
+        function generateRandomPassword(){
+            let password = "";
+            password += upperCase[Math.floor((Math.random() * upperCase.length))];
+            password += lowerCase[Math.floor((Math.random() * lowerCase.length))];
+            password += numbers[Math.floor((Math.random()*numbers.length))];
+            password += symbols[Math.floor((Math.random() * symbols.length))];
+             console.log(typeof password);
+
+            //  while(length > password.length){
+            //     password += allChars[Math.floor((Math.random() * allChars.length))];
+            //  }
+
+             for (i=0; i <= 12; i++) {
+                password += allChars[Math.floor((Math.random() * allChars.length))];
+            }
+             password = password.slice(0, 12);
+
+              inputBox.value = password;
+        }
+
+
+     </script>
+</body>
+
+</html>
+

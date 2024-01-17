@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> condition to check if a number is positive or negative or zero  </title>
+
+</head>
+<body>
+    
+
+    <div class="main"> 
+        <input type="text" id="number_value" placeholder="Please Enter the number"> 
+        <button type="button" id="btn" onclick="validateResponse()"> Convert </button> 
+        <h1 id="response_text"> 
+        </h1>
+    </div>
+       
+
+    <script>
+          
+          
+          let btn = document.getElementById("btn");
+          let text = document.getElementById("response_text");
+          
+         
+         
+          function validateResponse(){
+             let input_value = document.getElementById('number_value').value
+                //  let respnse = Math.sign(input_value);
+                //  console.log(respnse);
+            if(input_value < 0 ){
+             text.innerText = `${input_value} is a negative number`
+            }else if(input_value > 0){
+                text.innerText = `${input_value} is a positive number`
+            }else if(input_value==0){
+                text.innerText = `${input_value} is a Zero`
+            }else{
+                text.innerText = `${input_value} is not a number`
+            }
+          }
+          
+            
+
+    </script>
+
+
+</body>
+</html>
+

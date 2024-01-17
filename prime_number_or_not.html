@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Generate a Random Number to the min length of 5 and max length of 5  </title>
+
+</head>
+<body>
+    
+
+    <div class="main"> 
+        <input type="text" id="number_value" placeholder="Please Enter the number"> 
+        <button type="button" id="btn" onclick="validateResponse()"> Convert </button> 
+        <h1 id="response_text"> 
+        </h1>
+    </div>
+       
+
+    <script>
+       
+        function validateResponse(){
+            let number = document.getElementById("number_value").value;
+            let res = document.getElementById("response_text");
+            if(number == 1){
+                res.innerHTML = `${number} is not a prime number nor a composite number`
+            }else if (number < 1){
+                res.innerHTML = `${number} is not a prime number`
+            }else{
+           
+            for (let i = 0 ; i < number; i++){
+                if(number%i == 0){
+                    res.innerHTML = `${number} is not a prime number`;
+                    break;
+                }else{
+                    res.innerHTML = `${number} is a prime number`
+                }
+            }
+                res.innerHTML = `${number} is a prime number`
+            }
+
+        }
+    </script>
+
+
+</body>
+</html>
+
+

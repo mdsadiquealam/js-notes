@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lexical scope function </title>
+
+    <style>
+        .main{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            text-align: center;
+        }
+        .grandparent {
+            background: blue;
+            padding: 20px;
+            width: 300px;
+            height: 300px;
+            cursor: pointer;
+        }
+        .parent{
+            background-color: red;
+            padding: 20px;
+            width: 200px;
+            height: 200px;
+            margin: auto;
+            cursor: pointer;
+        }
+         .child{
+            background-color: green;
+            padding: 20px;
+            width: 100px;
+            height: 100px;
+            margin: auto;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    
+
+    <div class="main"> 
+    <div class="grandparent"> grand parent
+        <div class="parent"> parent
+            <div class="child"> child </div>
+        </div>
+    </div>
+    </div>
+        <form onclick="alert('form')">FORM
+            <div onclick="alert('div')">DIV
+                <p onclick="alert('p')">P</p>
+            </div>
+        </form>
+
+    <script>
+     
+     let grandparent = document.querySelector(".grandparent");
+     let parent = document.querySelector(".parent");
+     let child = document.querySelector(".child");
+
+    //  element.addEventListener('click', myFunction, true);
+
+
+     grandparent.addEventListener("click", function (e) {
+            console.log("grandparent capturing");
+        },true);
+
+     grandparent.addEventListener("click", function(e){
+        // e.stopPropagation();
+        console.log("grandparent clicked");
+     });
+    // parent.addEventListener("click", function (e) {
+    //     e.stopPropagation();
+    //   console.log("parent clicked")
+    // });
+    // child.addEventListener("click", function (e) {
+    //     e.stopPropagation();
+    //    console.log("child clicked")
+    // });
+
+        // function myFunction(array, index) {
+        //    for (let i = 0; i < array.length; i++) {
+        //     if(array[i]===index) {
+        //        console.log(array[i]);
+        //     }
+        //    }
+        // }
+        // let array = [2, 3, 4, 5];
+        // myFunction(array,);
+
+        // use of multiple function 
+        // debugger;
+        // function multipleFunction(){
+        //     debugger;
+        //     console.log("function 1");
+        //     function innerFunction(){
+        //     console.log("innerFunction");
+        //     }
+        //     innerFunction();
+        //     function secondInnerFunction(){
+        //     console.log("function 2");
+        //     }
+        //     secondInnerFunction();
+        //     function thirdInnerFunction() {
+        //     console.log("function 3");
+        //     }
+        //     thirdInnerFunction();
+        //     function fourthInnerFunction() {
+        //     console.log("function 4");
+        //     }
+        //     fourthInnerFunction();
+             
+            
+        // }
+        // multipleFunction();
+
+
+
+        // lexical scope
+        // const myvar = "variable stored";
+        // function myapp(){
+        //     function functionone(){
+        //         // const myvar = "variable stored1";
+        //         console.log(myvar);
+        //     }
+
+        //     const function2 = function(){
+        //         const myvar = "variable stored2";
+        //     }
+
+        //     const function3 = ()=>{
+        //          const myvar = "variable stored3";
+        //     }
+        //     console.log(myvar);
+        //     functionone();
+
+        // }
+        // debugger;
+        // myapp();
+
+
+        // block scope and function scope and global scope
+
+        // {
+        //     var myvar = "variable stored"; 
+        // }
+        //  console.log(myvar);
+
+        // console.log(age);
+        // var age = "sohail";
+        // let age = "adil";
+       
+        // let age = 10;
+        // function myFunction(age) {  
+        //   let age = 20;
+        //   console.log(age);
+        // }
+        // myFunction(20);
+        //  console.log(age);
+        
+        //for loops in javascript
+
+        // for(let i = 1; i <=10; i++) {
+        //     console.log(`Outer Loop in ${i}`);
+        //     for(let j = 1; j < 10; j++) {
+        //         // console.log(`outer loop ${i} and inner Loop in ${j}`);
+        //         console.log(` ${i} * ${j} =  ${i*j}`)
+        //     }
+        // }
+
+        //use of break and continue in javascript
+        // for(let i = 1; i <=10; i++) {
+        //     if(i === 3){
+        //         console.log(`detected ${i}`);
+        //         break;
+        //     }
+        //     console.log(i);
+        // };
+
+                // for (let i = 1; i <= 10; i++) {
+                //         if (i === 3) {
+                //             console.log(`detected ${i}`);
+                //             continue;
+                //         }
+                //         console.log(i);
+                //     };
+
+
+
+            // console.log(this.alert);
+            // console.log(this === window);
+
+            // "use strict";
+            //   myfuntion();
+            // function myfuntion(){
+            //     console.log(this);
+            // }
+
+
+            // call apply bind method in js
+
+        //   oops concept in javascript is
+        // const users = {
+        //     firstName: "Sohail",
+        //     lastName: "Alam",
+        //     age:10,
+        //     email:"sohailalam@gmail.com",
+        //     address:"House Number, colony, pincode, and state",
+        //     about:function(){
+        //         return `My name is md ${this.firstName} and my age is ${this.age}`;
+        //     },
+        //     is18:function(){
+        //         return this.age >= 18;
+        //     }
+        // }
+
+        // let userInfo = users.about();
+        // console.log(userInfo);
+
+        const userMethod = {
+            about : function () {
+                return `My name is md ${this.firstName} and my age is ${this.age}`
+            },
+            is18:function () {
+                return this.age >= 18;
+            }
+        }
+
+
+        function createUser(firstName, lastName, email, age, address){
+            const users = {};
+            users.firstName = firstName;
+            users.lastName = lastName;
+            users.email = email;
+            users.age = age;
+            users.address = address;
+            users.about = userMethod.about;
+            users.is18 = userMethod.is18;
+            return users;
+        };
+
+
+        let user1 = createUser("sohail", "Alam", "sohailalam@gmail.com", 20, "House Number, colony, pincode, and state");
+        let user2 = createUser("adil", "Alam", "adilalam@gmail.com", 10, "House Number, colony, pincode, and state");
+        let user3 = createUser("wakil","Alam","wakilalam@gmail.com",18, "House Number, colony, pincode, and state");
+        
+        //  console.log(userInfo);
+    const aboutValue = user1.about();
+    console.log(aboutValue);
+
+
+    //    let aboutuser2 = user2.about();
+    //    console.log(aboutuser2);
+
+
+    // arrow function and this keywordss
+    // console.log(this);
+    // console.log(this);
+    // console.log(firstName)
+    // let firstName = "sohail";
+
+
+    // event bubbling and event propagation
+
+ 
+
+    //post
+    // fetch('https://jsonplaceholder.typicode.com/posts', {
+    //         method: 'POST',
+    //         body: JSON.stringify({
+    //             title: 'foo',
+    //             body: 'bar',
+    //             userId: 1,
+    //         }),
+    //         headers: {
+    //             'Content-type': 'application/json; charset=UTF-8',
+    //         },
+    //     })
+    //         .then((response) => response.json())
+    //         .then((json) => console.log(json));
+
+
+            // PUT
+            // fetch('https://jsonplaceholder.typicode.com/posts/1', {
+            //         method: 'PUT',
+            //         body: JSON.stringify({
+            //             id: 1,
+            //             title: 'foo',
+            //             body: 'bar',
+            //             userId: 1,
+            //         }),
+            //         headers: {
+            //             'Content-type': 'application/json; charset=UTF-8',
+            //         },
+            //     })
+            //         .then((response) => response.json())
+            //         .then((json) => console.log(json));
+
+
+            //Async Awaits in JS 
+
+        //    async function getData(){
+        //     // JS Fetch API
+        //        let url = "https://jsonplaceholder.typicode.com/posts";
+        //        let response = await fetch(url);
+        //        let data = await response.json();
+              
+        //     }
+
+        //     getData().then((data)=>{
+        //         console.log(data);
+        //     });
+
+            // console.log(getData());
+
+
+        //Async Await in js 
+
+        // For Of Loops in JavaScript
+        // let strings = "SohailAlam";
+
+        // for(let char of strings){
+        //     console.log("charcter of my string is " + char);
+        // }
+    
+        let number = [1, 2, 3, 4];
+        console.log("for in loops start here ")
+        for(let num in number){
+         console.log(num);
+        }
+
+        console.log("for loops start here  sufiya accounts whatsapp details hackeeddd..   +91-7903872306")
+        for(let i = 0; i < number.length; i++){
+            console.log(`the index of array is ${i} and the the value of index is ${number[i]}`);
+        }
+
+         console.log("for of loops start here ")
+            for (let i = 0; i < number.length; i++) {
+                console.log(`the index of array is ${i} and the the value of index is ${number[i]}`);
+            }
+
+
+       
+            // function getData(a,b,c, ...finalsss){
+            //     let sum =  a+b+c;
+            //     let summing = finalsss.reduce(function(acc,one){
+            //       return  acc + one;
+            //     })
+            //      return sum + summing;
+                
+            // }
+
+            // let store = getData(1,2,3,4,5,6,7,8)
+            // console.log(store);
+
+
+            // function abc(...arg){
+            //     console.log(arg);
+            // }
+
+            // let storage = abc(1,2,3,4,5,6,7);
+            // console.log(storage);
+        //For in loops in JavaScript
+
+
+
+
+    </script>
+</body>
+</html>
+
